@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilaquiles Football Team | CFT</title>
+    <meta name="description"
+        content="Sitio oficial del Chilaquiles Football Team. Roster, calendario, fotos y Hall of Fame.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+
+<div id="editors-modal" class="modal">
+    <div class="modal-content" style="max-width: 500px; text-align: center;">
+        <span class="close-modal" id="close-editors">&times;</span>
+        <h2 style="margin-bottom: 20px;">Creadores del Sitio</h2>
+        
+        <div class="profile-card" style="margin-bottom: 20px;">
+            <img src="perfilmany.png" alt="Manuel" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+            <h3>Manuel Urtusuástegui</h3>
+            <p>MANY | 0234823<br>Ing. en Innovación y Diseño<br>Esp. en Diseño Interactivo</p>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0;">
+        
+        <div class="profile-card">
+            <img src="perfilmax.jpeg" alt="Max" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+            <h3>Maximiliano Pérez</h3>
+            <p>MAX | 0234809<br>Ing. en Innovación y Diseño<br>Esp. en Diseño Interactivo</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const editorsModal = document.getElementById('editors-modal');
+        const btnOpen = document.getElementById('btn-open-editors');
+        const btnClose = document.getElementById('close-editors');
+
+        if (btnOpen) {
+            btnOpen.addEventListener('click', function(e) {
+                e.preventDefault(); // Evita comportamientos extraños de navegación
+                editorsModal.style.display = 'flex';
+            });
+        }
+
+        if (btnClose) {
+            btnClose.addEventListener('click', function() {
+                editorsModal.style.display = 'none';
+            });
+        }
+
+        // Cierra al hacer clic fuera del recuadro
+        window.addEventListener('click', function(event) {
+            if (event.target === editorsModal) {
+                editorsModal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+<body class="theme-verde">
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo-verde.png" alt="CFT Logo Verde" class="logo-img logo-verde">
+                <img src="logo-rojo.png" alt="CFT Logo Rojo" class="logo-img logo-rojo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#familia">Nosotros</a></li>
+                <li><a href="#calendario">Calendario</a></li>
+                <li><a href="#roster">Equipo</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#hof">Hall of Fame</a></li>
+                <li><a href="#" id="btn-admin"><i class="fas fa-cog"></i> Gestión</a></li>
+            </ul>
+            <div class="team-switcher">
+                <button id="btn-verde" class="switcher-btn active">Verdes</button>
+                <button id="btn-rojo" class="switcher-btn">Rojos</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="subtitle">Cultura Chilaquil</h2>
+            <h1 class="title">CHILAQUILES<br>FOOTBALL TEAM</h1>
+            <p class="description">Somos más que un equipo. Somos FAMILIA.</p>
+            <div class="hero-buttons">
+                <a href="#roster" class="btn-primary">Ver Roster Activo</a>
+                <a href="#calendario" class="btn-secondary">Próximos Juegos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Familia Chilaquil -->
+    <section id="familia" class="section familia-section">
+        <div class="container">
+            <h2 class="section-title">Familia <span>Chilaquil</span></h2>
+
+            <div class="mision-vision-grid">
+                <div class="mv-card card-vision">
+                    <h3 class="mv-title">Visión</h3>
+                    <p>La Cultura Chilaquil busca ser un ícono en el flag football, consolidando una identidad
+                        competitiva y familiar de alto nivel. Queremos integrar a generaciones jóvenes y mayores,
+                        acercándolos al deporte de una manera sana, divertida y formativa. Aspiramos a construir una
+                        comunidad sólida y apasionada, donde cada jugador y su familia encuentren un sentido de
+                        pertenencia, crecimiento y desarrollo tanto personal como colectivo.</p>
+                </div>
+                <div class="mv-card card-mision">
+                    <h3 class="mv-title">Misión</h3>
+                    <p>La Cultura Chilaquil busca fomentar el desarrollo deportivo, competitivo y formativo a través del
+                        flag football, creando un espacio donde jóvenes y adultos puedan crecer como atletas y personas.
+                        Tomando el deporte como un medio para construir una comunidad unida, donde el trabajo en equipo,
+                        la disciplina y la inclusión fortalecen tanto el juego como las relaciones dentro y fuera del
+                        campo.</p>
+                </div>
+            </div>
+
+            <div class="historia-container">
+                <div class="historia-content">
+                    <h3 class="historia-title">Nuestra <span>Historia</span></h3>
+                    <div class="historia-verdes active" id="historia-verdes">
+                        <p>Rodeado de una cultura ganadora, CFT ha logrado hacerse de un nombre desde la fundación del equipo en primavera del año 2021. Cuando Manuel Urtusuástegui trajera a la realidad un concepto que mezcla fortaleza, progreso y estabilidad; cualidades pertenecientes a la forma del triángulo y representándolas en el emblema, ya conocido, que consta de una sola línea continua, que asemeja la forma de 3 triángulos entrelazados en honor a los 3 principales fundadores del equipo.</p>
+                        <p>Dicho emblema retoma las cualidades antes mencionadas de los triángulos y representa también la famosa silueta de los totopos típicos que se usan para preparar el platillo mexicano de chilaquiles.</p>
+                    </div>
+                    <div class="historia-rojos" id="historia-rojos" style="display: none;">
+                        <p>Chilaquiles Rojos nace en la temporada de invierno 2024 como una extensión natural de la esencia y cultura de CFT. Con la firme intención de trascender más allá del equipo principal, surge este proyecto enfocado en formar a las nuevas generaciones, no solo como atletas, sino como personas.</p>
+                        <p>Impulsados por la convicción de que el verdadero legado se construye desde la base, se creó un espacio donde los más pequeños pudieran aprender, crecer y desarrollarse dentro de un entorno competitivo, pero sobre todo formativo. Chilaquiles Rojos representa el inicio del camino, el primer contacto con los valores que definen a CFT: disciplina, compromiso, trabajo en equipo y resiliencia.</p>
+                        <p>Más que una categoría, es una comunidad donde cada jugador comienza a entender el significado de pertenecer a algo más grande que uno mismo. Aquí se siembran las bases del carácter, se fortalecen vínculos y se construye identidad.</p>
+                        <p>Porque en CFT no solo formamos jugadores, formamos familia.</p>
+                    </div>
+                </div>
+                <div class="historia-logo">
+                    <img src="logo-verde.png" alt="CFT Logo Verde" class="historia-img logo-verde">
+                    <img src="logo-rojo.png" alt="CFT Logo Rojo" class="historia-img logo-rojo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendario -->
+    <section id="calendario" class="section calendar-section">
+        <div class="container">
+            <h2 class="section-title">Calendario de <span>Juegos</span></h2>
+            <div class="calendar-grid" id="games-container">
+                <!-- Los juegos se insertan con JS -->
+            </div>
+            <div style="text-align: center; margin-top: 2rem; display: none;" id="calendar-btn-container">
+                <button id="btn-show-all-games" class="btn-primary">Consultar Calendario Completo</button>
+            </div>
+        </div>
+    </section>
+    <!-- Roster y Ratings (Estilo Madden) -->
+    <section id="roster" class="section roster-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro <span>Equipo</span></h2>
+            <div class="roster-filters">
+                <button class="filter-btn active" data-filter="active">Activos</button>
+                <button class="filter-btn" data-filter="past">Inactivos</button>
+            </div>
+
+            <div class="roster-controls">
+                <select id="sort-select" class="control-select">
+                    <option value="name-asc">A - Z</option>
+                    <option value="name-desc">Z - A</option>
+                    <option value="number-asc">Número Menor a Mayor</option>
+                </select>
+                <select id="pos-select" class="control-select">
+                    <option value="all">Todas las Posiciones</option>
+                    <option value="QB">QB</option>
+                    <option value="WR">WR</option>
+                    <option value="RB">RB / HB</option>
+                    <option value="DEF">Defensiva (LB/CB/R)</option>
+                </select>
+            </div>
+
+            <div class="players-grid" id="players-container">
+                <!-- Las tarjetas de jugadores se insertan con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Media (Fotos y Videos) -->
+    <section id="media" class="section media-section">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                <h2 class="section-title" style="margin-bottom: 0;">Fotos & <span>Videos</span></h2>
+                <div style="display: flex; gap: 1rem;">
+                    <button id="btn-media-view" class="btn-secondary" style="font-size: 0.9rem;"><i class="fas fa-th-large"></i> Vista Individual</button>
+                    <button id="btn-add-media" class="btn-secondary" style="font-size: 0.9rem;"><i class="fas fa-plus"></i> Agregar</button>
+                </div>
+            </div>
+            
+            <div class="media-grid" id="media-grid">
+                <!-- Se insertarán con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hall of Fame -->
+    <section id="hof" class="section hof-section">
+        <div class="container">
+            <h2 class="section-title">Hall of <span>Fame</span></h2>
+            <p class="hof-intro">Leyendas y logros que forjaron la Cultura Chilaquil.</p>
+            
+            <div class="hof-tabs-container">
+                <button class="hof-tab-btn active" data-hoftab="hof-jugadores">1. Jugadores</button>
+                <button class="hof-tab-btn" data-hoftab="hof-resultados">2. Resultados</button>
+            </div>
+
+            <!-- Tab 1: Jugadores -->
+            <div id="hof-jugadores" class="hof-tab-content active">
+                <div class="hof-grid" id="hof-container">
+                    <!-- Leyendas individuales insertadas por JS -->
+                </div>
+            </div>
+
+            <!-- Tab 2: Resultados -->
+            <div id="hof-resultados" class="hof-tab-content">
+                <div class="resultados-list" id="resultados-container">
+                    <!-- Historial de torneos insertado por JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <h2>CULTURA CHILAQUIL</h2>
+            <p>TODO EL DIA</p>
+        </div>
+        
+        <div class="footer-editors" style="text-align: center; display: flex; align-items: center;">
+            <button id="btn-open-editors" class="btn-secondary">Conoce a los editores</button>
+        </div>
+
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/chilaquiles_ft?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-btn">@chilaquiles_ft</a>
+                <a href="https://www.instagram.com/cft_verdes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-btn verde-link">@cft_verdes</a>
+                <a href="https://www.instagram.com/cft_rojos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-btn rojo-link">@cft_rojos</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024-2025 Chilaquiles Football Team. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    <!-- Admin Modals -->
+    <div id="admin-auth-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <span class="close-auth-modal close-modal">&times;</span>
+            <h2>Acceso Restringido</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Ingrese la clave para continuar</p>
+            <input type="password" id="admin-password" placeholder="Clave de acceso" style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; text-align: center; font-size: 1.2rem; letter-spacing: 2px;">
+            <button id="btn-auth-submit" class="btn-primary w-100">Ingresar</button>
+            <p id="auth-error" style="color: var(--cft-rojo-main); font-size: 0.9rem; margin-top: 10px; display: none;">Clave incorrecta</p>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Gestión del Equipo</h2>
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="tab-player">Jugadores</button>
+                <button class="tab-btn" data-tab="tab-game">Juegos</button>
+                <button class="tab-btn" data-tab="tab-media">Media</button>
+                <button class="tab-btn" data-tab="tab-hofres">Resultados HOF</button>
+            </div>
+
+            <div id="tab-player" class="tab-content active">
+                <div class="admin-list-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #fff; font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Lista de Jugadores</h3>
+                    <button id="btn-new-player" class="btn-secondary" type="button" style="padding: 0.4rem 1rem; font-size: 1rem;">+ Nuevo</button>
+                </div>
+                <div id="admin-players-list" class="admin-list" style="margin-bottom: 1.5rem; max-height: 250px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <!-- Jugadores -->
+                </div>
+
+                <form id="form-player" class="admin-form" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px;">
+                        <h3 id="form-player-title" style="margin: 0; color: var(--accent-gold); font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Agregar Jugador</h3>
+                        <button type="button" id="btn-cancel-player" class="btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">Volver</button>
+                    </div>
+                    <input type="hidden" id="p-id" value="">
+                    <div class="form-row">
+                        <input type="text" id="p-name" placeholder="Nombre completo" required>
+                        <input type="text" id="p-nickname" placeholder="Apodo (Opcional)">
+                    </div>
+                    <div class="form-row">
+                        <label style="color: var(--text-muted); width: 100%; font-size: 0.9rem;">
+                            Foto del jugador (opcional)
+                            <input type="file" id="p-photo" accept="image/*" style="width: 100%; margin-top: 5px; padding: 0.5rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff;">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <input type="number" id="p-number" placeholder="Número (Ej. 12)" required>
+                        <select id="p-position" required>
+                            <option value="">Posición principal...</option>
+                            <option value="QB">Quarterback (QB)</option>
+                            <option value="WR">Wide Receiver (WR)</option>
+                            <option value="RB">Running Back (RB)</option>
+                            <option value="LB">Linebacker (LB)</option>
+                            <option value="CB">Cornerback (CB)</option>
+                            <option value="R">Rusher (R)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <select id="p-status" required>
+                            <option value="active">Activo</option>
+                            <option value="past">Inactivo</option>
+                        </select>
+                        <select id="p-team" required>
+                            <option value="Verdes">CFT Verdes</option>
+                            <option value="Rojos">CFT Rojos</option>
+                            <option value="Ambos">Ambos (Verdes y Rojos)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <select id="p-stars" required>
+                            <option value="1">1 Estrella</option>
+                            <option value="2">2 Estrellas</option>
+                            <option value="3">3 Estrellas</option>
+                            <option value="4">4 Estrellas</option>
+                            <option value="5">5 Estrellas (Miembro Fundador)</option>
+                        </select>
+                        <label style="display: flex; align-items: center; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 8px; color: var(--text-main); font-family: var(--font-body); cursor: pointer;">
+                            <input type="checkbox" id="p-captain" style="margin-right: 10px; width: auto; accent-color: var(--accent-gold);">
+                            Es Capitán (C)
+                        </label>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Hall of Fame</h4>
+                        <div class="form-row" style="align-items: center; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 8px;">
+                            <label style="color: var(--text-main); font-family: var(--font-body); cursor: pointer;">
+                                <input type="checkbox" id="p-ishof" style="margin-right: 10px; accent-color: var(--accent-gold);">
+                                Pertenece al HOF
+                            </label>
+                        </div>
+                        <div id="p-hof-fields" style="display: none; flex-direction: column; gap: 1rem; margin-top: 1rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+                            <input type="text" id="p-hof-year" placeholder="Año / Clase (Ej. Clase 2024)">
+                            <textarea id="p-hof-desc" placeholder="Descripción / Logros" rows="2" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 8px; color: var(--text-main); font-family: var(--font-body); resize: vertical;"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Temporadas Jugadas</h4>
+                        <div class="checkbox-grid" id="p-seasons-grid">
+                            <!-- JS will populate seasons here -->
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h4>Detalles Adicionales</h4>
+                        <div class="form-row">
+                            <input type="text" id="p-recruited" placeholder="Temporada de reclutamiento (Ej. Primavera 2021)">
+                        </div>
+                        <textarea id="p-palmares" placeholder="Palmarés / Logros adicionales" rows="3" style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 8px; color: var(--text-main); font-family: var(--font-body); resize: vertical; margin-top: 10px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Guardar Jugador</button>
+                </form>
+            </div>
+
+            <div id="tab-game" class="tab-content">
+                <div class="admin-list-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #fff; font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Lista de Partidos</h3>
+                    <button id="btn-new-game" class="btn-secondary" type="button" style="padding: 0.4rem 1rem; font-size: 1rem;">+ Nuevo</button>
+                </div>
+                <div id="admin-games-list" class="admin-list" style="margin-bottom: 1.5rem; max-height: 250px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <!-- Juegos -->
+                </div>
+                <form id="form-game" class="admin-form" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px;">
+                        <h3 id="form-game-title" style="margin: 0; color: var(--accent-gold); font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Agregar Partido</h3>
+                        <button type="button" id="btn-cancel-game" class="btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">Volver</button>
+                    </div>
+                    <input type="hidden" id="g-id" value="">
+                    <input type="text" id="g-opponent" placeholder="Oponente (Ej. vs. Cuervos)" required>
+                    <div class="form-row">
+                        <input type="date" id="g-date" required>
+                        <input type="time" id="g-time">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="g-season" placeholder="Temporada (Ej. Invierno 2024)">
+                        <input type="text" id="g-type" placeholder="Tipo (Ej. Jornada 1, Semifinal)">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="g-location" placeholder="Lugar (Ej. Campo Sur)">
+                        <input type="text" id="g-result" placeholder="Marcador (Ej. 24 - 14)">
+                    </div>
+                    <select id="g-status" required>
+                        <option value="upcoming">Próximo</option>
+                        <option value="result-win">Victoria</option>
+                        <option value="result-loss">Derrota</option>
+                    </select>
+                    <select id="g-team" required>
+                        <option value="Ambos">Ambos Equipos</option>
+                        <option value="Verdes">CFT Verdes</option>
+                        <option value="Rojos">CFT Rojos</option>
+                    </select>
+                    <div style="display:flex; gap:10px; margin-top:10px;">
+                        <button type="button" id="btn-delete-game-form" class="btn-secondary w-100" style="display:none; background:var(--cft-rojo-main); border-color:var(--cft-rojo-main); color:white;">Eliminar</button>
+                        <button type="submit" class="btn-primary w-100">Guardar Juego</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="tab-media" class="tab-content">
+                <div class="admin-list-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #fff; font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Gestión de Media</h3>
+                    <button id="btn-new-media" class="btn-secondary" type="button" style="padding: 0.4rem 1rem; font-size: 1rem;">+ Subir</button>
+                </div>
+                <div id="admin-media-list" class="admin-list media-admin-grid" style="margin-bottom: 1.5rem; max-height: 300px; overflow-y: auto; padding-right: 5px; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <!-- Media Items -->
+                </div>
+                <form id="form-media" class="admin-form" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px;">
+                        <h3 style="margin: 0; color: var(--accent-gold); font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Subir Foto/Video</h3>
+                        <button type="button" id="btn-cancel-media" class="btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">Volver</button>
+                    </div>
+                    <input type="hidden" id="m-id" value="">
+                    <!-- Se usará para mantener src en el modo de edición de media, si es necesario -->
+                    <div class="form-row">
+                        <label style="color: var(--text-muted); width: 100%; font-size: 0.9rem;">
+                            Seleccionar Archivo
+                            <input type="file" id="m-file" accept="image/*,video/mp4,video/webm" style="width: 100%; margin-top: 5px; padding: 0.5rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff;">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <select id="m-team" required>
+                            <option value="Verdes">CFT Verdes</option>
+                            <option value="Rojos">CFT Rojos</option>
+                            <option value="Ambos">Ambos</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Guardar Media</button>
+                </form>
+            </div>
+
+            <div id="tab-hofres" class="tab-content">
+                <div class="admin-list-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #fff; font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Resultados Históricos</h3>
+                    <button id="btn-new-hofres" class="btn-secondary" type="button" style="padding: 0.4rem 1rem; font-size: 1rem;">+ Nuevo</button>
+                </div>
+                <div id="admin-hofres-list" class="admin-list" style="margin-bottom: 1.5rem; max-height: 250px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 0.5rem;">
+                </div>
+                <form id="form-hofres" class="admin-form" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px;">
+                        <h3 style="margin: 0; color: var(--accent-gold); font-family: var(--font-college); font-size: 1.5rem; letter-spacing: 1px;">Resultado Histórico</h3>
+                        <button type="button" id="btn-cancel-hofres" class="btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">Volver</button>
+                    </div>
+                    <input type="hidden" id="r-id" value="">
+                    <div class="form-row">
+                        <input type="text" id="r-season" placeholder="Temporada (Ej. Invierno 2024)" required>
+                        <select id="r-team" required>
+                            <option value="Chilaquiles Verdes">Chilaquiles Verdes</option>
+                            <option value="Chilaquiles Rojos">Chilaquiles Rojos</option>
+                            <option value="Ambos">Ambos</option>
+                        </select>
+                    </div>
+                    <input type="text" id="r-title" placeholder="Título / Logro (Ej. Campeones)" required>
+                    <textarea id="r-desc" placeholder="Descripción" rows="3" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; border-radius: 8px; color: var(--text-main); font-family: var(--font-body); resize: vertical; width: 100%; margin-bottom: 10px;" required></textarea>
+                    
+                    <div style="display:flex; gap:10px; margin-top:10px;">
+                        <button type="button" id="btn-delete-hofres-form" class="btn-secondary w-100" style="display:none; background:var(--cft-rojo-main); border-color:var(--cft-rojo-main); color:white;">Eliminar</button>
+                        <button type="submit" class="btn-primary w-100">Guardar Resultado</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="player-profile-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px; padding: 2rem;">
+            <span class="close-profile-modal close-modal" style="position: absolute; right: 20px; top: 15px;">&times;</span>
+            <div id="player-profile-content">
+                <!-- Se llenará con JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal para Media -->
+    <div id="lightbox-modal" class="modal" style="z-index: 2000; background-color: rgba(0,0,0,0.95);">
+        <span class="close-lightbox" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s;">&times;</span>
+        
+        <div class="lightbox-content" style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%; position: relative;">
+            <button id="lightbox-prev" style="position: absolute; left: 5%; background: rgba(255,255,255,0.1); border: none; color: white; font-size: 40px; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; z-index: 10;">&#10094;</button>
+            
+            <div id="lightbox-media-container" style="max-width: 80%; max-height: 80%; display: flex; justify-content: center; align-items: center;">
+                <!-- Imagen o Video se insertará aquí -->
+            </div>
+            
+            <button id="lightbox-next" style="position: absolute; right: 5%; background: rgba(255,255,255,0.1); border: none; color: white; font-size: 40px; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; z-index: 10;">&#10095;</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
